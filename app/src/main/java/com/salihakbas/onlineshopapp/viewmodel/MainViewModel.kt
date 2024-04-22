@@ -7,13 +7,17 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.salihakbas.onlineshopapp.model.CategoryModel
 import com.salihakbas.onlineshopapp.model.SliderModel
 
 class MainViewModel : ViewModel() {
 
     private val firebaseDatabase = FirebaseDatabase.getInstance()
     private val _banner = MutableLiveData<List<SliderModel>>()
+    private val _category = MutableLiveData<MutableList<CategoryModel>>()
+
     val banners: LiveData<List<SliderModel>> = _banner
+    val category : LiveData<MutableList<CategoryModel>> = _category
 
     fun loadBanners() {
         val ref = firebaseDatabase.getReference("Banner")
@@ -31,6 +35,27 @@ class MainViewModel : ViewModel() {
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
+            }
+
+        })
+    }
+    fun loadCategory() {
+        val Ref = firebaseDatabase.getReference("Category")
+        Ref.addValueEventListener(object:ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists= mutableListOf<CategoryModel>()
+
+                for (childSnapshot in snapshot.children) {
+                    val list = childSnapshot.getValue(CategoryModel::class.java)
+                    if (list != null) {
+                        lists.add(list)
+                    }
+                }
+                _category.value = lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
             }
 
         })

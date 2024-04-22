@@ -3,9 +3,11 @@ package com.salihakbas.onlineshopapp.activity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.salihakbas.onlineshopapp.adapter.CategoryAdapter
 import com.salihakbas.onlineshopapp.adapter.SliderAdapter
 import com.salihakbas.onlineshopapp.databinding.ActivityMainBinding
 import com.salihakbas.onlineshopapp.model.SliderModel
@@ -21,6 +23,18 @@ class MainActivity : BaseActivity() {
         setContentView(binding.root)
 
         initBanners()
+        initCategories()
+    }
+
+    private fun initCategories() {
+        binding.progressBarCategory.visibility = View.VISIBLE
+        viewModel.category.observe(this, Observer {
+            binding.viewCategory.layoutManager =
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+            binding.viewCategory.adapter = CategoryAdapter(it)
+            binding.progressBarCategory.visibility = View.GONE
+        })
+        viewModel.loadCategory()
     }
 
     private fun initBanners() {
@@ -32,8 +46,8 @@ class MainActivity : BaseActivity() {
         viewModel.loadBanners()
     }
 
-    private fun banners(images:List<SliderModel>) {
-        binding.viewPagerSlider.adapter = SliderAdapter(images,binding.viewPagerSlider)
+    private fun banners(images: List<SliderModel>) {
+        binding.viewPagerSlider.adapter = SliderAdapter(images, binding.viewPagerSlider)
         binding.viewPagerSlider.clipToPadding = false
         binding.viewPagerSlider.clipChildren = false
         binding.viewPagerSlider.offscreenPageLimit = 3
@@ -43,7 +57,7 @@ class MainActivity : BaseActivity() {
             addTransformer(MarginPageTransformer(40))
         }
         binding.viewPagerSlider.setPageTransformer(compositePageTransformer)
-        if (images.size>1) {
+        if (images.size > 1) {
             binding.dotIndicator.visibility = View.VISIBLE
             binding.dotIndicator.attachTo(binding.viewPagerSlider)
         }
