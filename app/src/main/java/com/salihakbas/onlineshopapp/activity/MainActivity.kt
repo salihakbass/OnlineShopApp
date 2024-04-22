@@ -3,10 +3,12 @@ package com.salihakbas.onlineshopapp.activity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.salihakbas.onlineshopapp.adapter.BestSellerAdapter
 import com.salihakbas.onlineshopapp.adapter.CategoryAdapter
 import com.salihakbas.onlineshopapp.adapter.SliderAdapter
 import com.salihakbas.onlineshopapp.databinding.ActivityMainBinding
@@ -24,6 +26,17 @@ class MainActivity : BaseActivity() {
 
         initBanners()
         initCategories()
+        initBestSeller()
+    }
+
+    private fun initBestSeller() {
+        binding.progressBarBestSeller.visibility = View.VISIBLE
+        viewModel.bestSeller.observe(this,Observer {
+            binding.viewBestSeller.layoutManager = GridLayoutManager(this,2)
+            binding.viewBestSeller.adapter = BestSellerAdapter(it)
+            binding.progressBarBestSeller.visibility = View.GONE
+        })
+        viewModel.loadBestSeller()
     }
 
     private fun initCategories() {

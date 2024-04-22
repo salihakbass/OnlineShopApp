@@ -8,16 +8,21 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.salihakbas.onlineshopapp.model.CategoryModel
+import com.salihakbas.onlineshopapp.model.ItemsModel
 import com.salihakbas.onlineshopapp.model.SliderModel
 
 class MainViewModel : ViewModel() {
 
     private val firebaseDatabase = FirebaseDatabase.getInstance()
+
     private val _banner = MutableLiveData<List<SliderModel>>()
     private val _category = MutableLiveData<MutableList<CategoryModel>>()
+    private val _bestSeller = MutableLiveData<MutableList<ItemsModel>>()
+
 
     val banners: LiveData<List<SliderModel>> = _banner
     val category : LiveData<MutableList<CategoryModel>> = _category
+    val bestSeller : LiveData<MutableList<ItemsModel>> = _bestSeller
 
     fun loadBanners() {
         val ref = firebaseDatabase.getReference("Banner")
@@ -52,6 +57,28 @@ class MainViewModel : ViewModel() {
                     }
                 }
                 _category.value = lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+    }
+
+    fun loadBestSeller() {
+        val Ref = firebaseDatabase.getReference("Items")
+        Ref.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<ItemsModel>()
+
+                for (childSnapshot in snapshot.children) {
+                    val list = childSnapshot.getValue(ItemsModel::class.java)
+                    if (list!= null) {
+                        lists.add(list)
+                    }
+                }
+                _bestSeller.value = lists
             }
 
             override fun onCancelled(error: DatabaseError) {
