@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Welcome"
+                        android:text="@string/welcome_main_txt"
                         android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +44,7 @@
                         android:id="@+id/textView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tom Johnson"
+                        android:text="@string/user_name_txt"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,7 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="@string/notification_number_txt"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
@@ -95,7 +96,7 @@
                     android:drawableStart="@drawable/search_icon"
                     android:drawablePadding="8dp"
                     android:ems="10"
-                    android:hint="Search anything..."
+                    android:hint="@string/search_bar_txt"
                     android:inputType="text"
                     android:padding="8dp"
                     android:textColor="@color/grey"
@@ -155,7 +156,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Categories"
+                    android:text="@string/categories_title_txt"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -164,7 +165,7 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all_txt"
                     android:textColor="@color/green" />
             </LinearLayout>
 
@@ -209,7 +210,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Best Seller Product"
+                    android:text="@string/best_seller_title_txt"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -218,7 +219,7 @@
                     android:id="@+id/textView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all_txt"
                     android:textColor="@color/green" />
             </LinearLayout>
 
@@ -290,7 +291,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Explorer"
+                        android:text="@string/explorer_txt"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -313,7 +314,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Cart"
+                        android:text="@string/cart_txt"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -336,7 +337,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Wishlist"
+                        android:text="@string/wishlist_txt"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -359,7 +360,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="My Order"
+                        android:text="@string/my_order_txt"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -382,7 +383,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Profile"
+                        android:text="@string/profile_txt"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
