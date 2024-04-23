@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "910103964486",
+    "project_id": "onlineshopapp-beb61",
+    "storage_bucket": "onlineshopapp-beb61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910103964486:android:82015edab10545f4355347",
+        "android_client_info": {
+          "package_name": "com.salihakbas.onlineshopapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_WXh0yPJHLxI-PMD6UnNymjmjsqudEY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
