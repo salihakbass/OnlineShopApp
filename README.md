@@ -1,1 +1,1 @@
-![Screenshot Intro](https://github.com/salihakbass/OnlineShopApp/blob/master/app/src/main/res/drawable/screenshotintro.jpg)
+![Screenshot Intro](https://github.com/salihakbass/OnlineShopApp/blob/master/app/src/main/res/drawable/screenshotintro.jpg = 250x250)
